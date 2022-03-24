@@ -1,18 +1,18 @@
 <!-- Navigation bar -->
 <ul class="col-md-12 nav p-0 d-flex justify-content-around align-items-center">
     <li class="nav-brand">
-        <a href="http://<?= $_SERVER['HTTP_HOST']; ?>/CLE/">
-            <img src="http://<?= $_SERVER['HTTP_HOST']; ?>/CLE/images/SRDC-Logo.png" alt="">
+        <a href="http://<?= $_SERVER['HTTP_HOST']; ?>/CLE2/">
+            <img src="http://<?= $_SERVER['HTTP_HOST']; ?>/CLE2/images/SRDC-Logo.png" alt="">
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-maroon" href="http://<?= $_SERVER['HTTP_HOST']; ?>/CLE/schedule">Lessen</a>
+        <a class="nav-link text-maroon" href="http://<?= $_SERVER['HTTP_HOST']; ?>/CLE2/schedule">Lessen</a>
     </li>
     <li class="nav-item">
         <a class="nav-link text-maroon" href="#">Workshops</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-maroon" href="http://<?= $_SERVER['HTTP_HOST']; ?>/CLE/parties">Parties</a>
+        <a class="nav-link text-maroon" href="http://<?= $_SERVER['HTTP_HOST']; ?>/CLE2/parties">Parties</a>
     </li>
     <li class="nav-item">
         <a class="nav-link text-maroon" href="#">Shows</a>
@@ -22,10 +22,10 @@
             <a class="nav-link text-maroon dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Admin</a>
             <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="#">Profiel</a></li>
-                <li><a class="dropdown-item" href="http://<?= $_SERVER['HTTP_HOST']; ?>/CLE/register.php">Registreer nieuwe gebruiker</a></li>
+                <li><a class="dropdown-item" href="http://<?= $_SERVER['HTTP_HOST']; ?>/CLE2/register.php">Registreer nieuwe gebruiker</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li>
-                    <form method="post" action="http://<?= $_SERVER['HTTP_HOST']; ?>/CLE/logout.php">
+                    <form method="post" action="http://<?= $_SERVER['HTTP_HOST']; ?>/CLE2/logout.php">
                         <input type="submit" name="submit" class="dropdown-item" value="Uitloggen">
                     </form>
                 </li>
@@ -33,7 +33,7 @@
         </li>
     <?php } else { ?>
         <li class="nav-item">
-            <a class="nav-link text-maroon" href="http://<?= $_SERVER['HTTP_HOST']; ?>/CLE/login.php">Inloggen</a>
+            <a class="nav-link text-maroon" href="http://<?= $_SERVER['HTTP_HOST']; ?>/CLE2/login.php">Inloggen</a>
         </li>
     <?php } ?>
 </ul>
