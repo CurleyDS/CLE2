@@ -21,7 +21,7 @@ if (isset($_POST['submit'])) {
         $result = updateReservation($db, $id, $lesson_id, $name, $phone, $email);
 
         if ($result) {
-            header('Location: http://' . $_SERVER['HTTP_HOST'] . '/CLE/schedule/');
+            header('Location: http://' . $_SERVER['HTTP_HOST'] . '/CLE2/schedule/');
             exit;
         } else {
             $errors['db'] = 'Something went wrong in your database query: ' . mysqli_error($db);
@@ -38,11 +38,11 @@ if (isset($_POST['submit'])) {
     if (mysqli_num_rows($result) == 1) {
         $reservation = mysqli_fetch_assoc($result);
     } else {
-        header('Location: http://' . $_SERVER['HTTP_HOST'] . '/CLE/schedule/');
+        header('Location: http://' . $_SERVER['HTTP_HOST'] . '/CLE2/schedule/');
         exit;
     }
 } else {
-    header('Location: http://' . $_SERVER['HTTP_HOST'] . '/CLE/schedule/');
+    header('Location: http://' . $_SERVER['HTTP_HOST'] . '/CLE2/schedule/');
     exit;
 }
 
@@ -61,12 +61,12 @@ mysqli_close($db);
             <!-- Require navigation-bar -->
             <?php require_once "../includes/navigation-bar.php"; ?>
         </div>
-        <div class="row py-3 d-flex justify-content-center">
+        <section>
             <div class="col-md-10">
                 <a href="../schedule" class="btn btn-maroon rounded-pill">Terug</a>
             </div>
-        </div>
-        <div class="row py-3 d-flex justify-content-center">
+        </section>
+        <section>
             <div class="col-md-10">
                 <!-- edit form -->
                 <form action="" method="post" enctype="multipart/form-data">
@@ -101,12 +101,12 @@ mysqli_close($db);
                     <!-- Submit form -->
                     <div class="mb-3">
                         <input type="hidden" name="id" value="<?= $reservation['id'] ?>"/>
-                        <input type="submit" name="submit" class="btn btn-primary" value="Submit" aria-describedby="contactHelp">
+                        <input type="submit" name="submit" class="btn btn-maroon" value="Submit" aria-describedby="contactHelp">
                         <div id="contactHelp" class="form-text">We'll never share your contact info with anyone else.</div>
                     </div>
                 </form>
             </div>
-        </div>
+        </section>
     </div>
 </body>
 </html>

@@ -1,30 +1,213 @@
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+nav-bar {
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.nav-brand {
+    margin-right: 1rem;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    display: inline-block;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+}
+
+.nav-link {
+    padding: .5rem 1rem;
+    display: block;
+    text-decoration: none;
+}
+
+.dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: black;
+    margin: 0;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: .25rem;
+    padding: .5rem 0;
+    min-width: 10rem;
+    list-style: none;
+    z-index: 1000;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-item {
+    display: block;
+    background-color: transparent;
+    border: 0;
+    padding: .25rem 1rem;
+    width: 100%;
+    clear: both;
+    white-space: nowrap;
+    color: #800000;
+    font-size: 1rem;
+    text-align: left;
+    text-decoration: none;
+}
+
+.dropdown-divider {
+    height: 1px;
+    margin: .5rem 0;
+    overflow: hidden;
+    border-top: 1px solid rgba(0,0,0,.15);
+}
+
+banner {
+    display: flex;
+    justify-content: center;
+}
+
+.banner-div {
+    position: relative;
+}
+
+.banner-img {
+    display: flex;
+    align-items: center;
+}
+
+.banner-btn {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+}
+
+section {
+    padding: 3em 1em;
+}
+
+a {
+    display: block;
+    color: #800000;
+    text-decoration: none;
+}
+
+table {
+    border: 1px solid black;
+    border-radius: .25rem;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table thead, tbody, tfoot {
+    text-align: left;
+}
+
+table th, table td {
+    padding: 1em;
+}
+
+form div {
+    margin-bottom: 1rem;
+}
+
+.form-label {
+    margin-bottom: .5rem;
+}
+
+.form-control {
+    display: block;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    padding: .375rem .75rem;
+    width: 100%;
+}
+
+.form-text {
+    margin-top: .25rem;
+    font-size: .875em;
+    color: #6c757d;
+}
+
+.bg-black {
+    background-color: black !important;
+}
+
 .bg-maroon {
     background-color: #800000 !important;
+}
+
+.border {
+    border: 1px solid transparent;
 }
 
 .border-maroon {
     border-color: #800000 !important;
 }
 
+.btn {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    padding: .375rem .75rem;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.btn-group .btn {
+    border: 1px solid black;
+    border-radius: 0;
+    width: 100%;
+}
+
 .btn-maroon {
     background-color: #800000 !important;
+    border-color: #800000 !important;
     color: white !important;
 }
 
 .btn-maroon:hover {
     background-color: #700000 !important;
+    border-color: #700000 !important;
 }
 
 .btn-outline-maroon {
+    border-color: #800000 !important;
     color: #800000 !important;
-    border: #800000 !important;
 }
 
 .btn-outline-maroon:hover {
-    color: #700000 !important;
-    border: #700000 !important;
+    background-color: #700000 !important;
+    border-color: #700000 !important;
+    color: white !important;
+}
+
+.text-right {
+    text-align: right;
 }
 
 .text-maroon {
     color: #800000 !important;
+}
+
+.text-error {
+    color: red;
 }

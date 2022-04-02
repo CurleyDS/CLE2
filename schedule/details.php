@@ -19,15 +19,15 @@ if (isset($_GET['id']) || $_GET['id'] != '') {
         if (mysqli_num_rows($lResult) == 1) {
             $reservation['lesson'] = mysqli_fetch_assoc($lResult);
         } else {
-            header('Location: http://' . $_SERVER['HTTP_HOST'] . '/CLE/schedule/');
+            header('Location: http://' . $_SERVER['HTTP_HOST'] . '/CLE2/schedule/');
             exit;
         }
     } else {
-        header('Location: http://' . $_SERVER['HTTP_HOST'] . '/CLE/schedule/');
+        header('Location: http://' . $_SERVER['HTTP_HOST'] . '/CLE2/schedule/');
         exit;
     }
 } else {
-    header('Location: http://' . $_SERVER['HTTP_HOST'] . '/CLE/schedule/');
+    header('Location: http://' . $_SERVER['HTTP_HOST'] . '/CLE2/schedule/');
     exit;
 }
 
@@ -46,12 +46,12 @@ mysqli_close($db);
             <!-- Require navigation-bar -->
             <?php require_once "../includes/navigation-bar.php"; ?>
         </div>
-        <div class="row py-3 d-flex justify-content-center">
+        <section>
             <div class="col-md-10">
                 <a href="../schedule" class="btn btn-maroon rounded-pill">Terug</a>
             </div>
-        </div>
-        <div class="row py-3 d-flex justify-content-center">
+        </section>
+        <section>
             <div class="col-md-10">
                 <h2>De reservering voor de les van <?= date('l jS F Y \o\n H:i', strtotime($reservation['lesson']['start_datetime'])) . ' - ' . date('H:i', strtotime($reservation['lesson']['end_datetime'])); ?> van <?= $reservation['name']; ?></h2>
                 <ul class="list-group">
@@ -61,7 +61,7 @@ mysqli_close($db);
                     <li class="list-group-item"><b>Email:</b> <?= $reservation['email']; ?></li>
                 </ul>
             </div>
-        </div>
+        </section>
     </div>
 </body>
 </html>

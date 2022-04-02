@@ -11,13 +11,13 @@ mysqli_close($db);
     <?php require_once "../includes/head-info.php"; ?>
 </head>
 <body>
-    <div class="container-fluid">
-        <div class="row bg-black">
-            <?php require_once "../includes/navigation-bar.php"; ?>
-        </div>
-        <div class="row">
+    <div class="bg-black">
+        <?php require_once "../includes/navigation-bar.php"; ?>
+    </div>
+    <div>
+        <section>
             parties
-        </div>
+        </section>
     </div>
 </body>
 </html>

@@ -1,39 +1,39 @@
 <!-- Navigation bar -->
-<ul class="col-md-12 nav p-0 d-flex justify-content-around align-items-center">
-    <li class="nav-brand">
+<nav-bar>
+    <div class="nav-brand">
         <a href="http://<?= $_SERVER['HTTP_HOST']; ?>/CLE2/">
             <img src="http://<?= $_SERVER['HTTP_HOST']; ?>/CLE2/images/SRDC-Logo.png" alt="">
         </a>
-    </li>
-    <li class="nav-item">
+    </div>
+    <div>
         <a class="nav-link text-maroon" href="http://<?= $_SERVER['HTTP_HOST']; ?>/CLE2/schedule">Lessen</a>
-    </li>
-    <li class="nav-item">
+    </div>
+    <div>
         <a class="nav-link text-maroon" href="#">Workshops</a>
-    </li>
-    <li class="nav-item">
+    </div>
+    <div>
         <a class="nav-link text-maroon" href="http://<?= $_SERVER['HTTP_HOST']; ?>/CLE2/parties">Parties</a>
-    </li>
-    <li class="nav-item">
+    </div>
+    <div>
         <a class="nav-link text-maroon" href="#">Shows</a>
-    </li>
+    </div>
     <?php if (isset($_SESSION['user'])) { ?>
-        <li class="nav-item dropdown">
-            <a class="nav-link text-maroon dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Admin</a>
+        <div class="dropdown">
+            <a class="nav-link text-maroon">Admin</a>
             <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="#">Profiel</a></li>
                 <li><a class="dropdown-item" href="http://<?= $_SERVER['HTTP_HOST']; ?>/CLE2/register.php">Registreer nieuwe gebruiker</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li>
                     <form method="post" action="http://<?= $_SERVER['HTTP_HOST']; ?>/CLE2/logout.php">
-                        <input type="submit" name="submit" class="dropdown-item" value="Uitloggen">
+                        <input type="submit" name="submit" value="Uitloggen" class="dropdown-item">
                     </form>
                 </li>
             </ul>
-        </li>
+        </div>
     <?php } else { ?>
-        <li class="nav-item">
+        <div>
             <a class="nav-link text-maroon" href="http://<?= $_SERVER['HTTP_HOST']; ?>/CLE2/login.php">Inloggen</a>
-        </li>
+        </div>
     <?php } ?>
-</ul>
+    </nav-bar>

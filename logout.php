@@ -10,7 +10,7 @@ if (!isset($_SESSION['user'])) {
 // Check if form has been submitted
 if (isset($_POST['submit'])) {
     session_destroy();
-    header('Location: /CLE/');
+    header('Location: /CLE2/');
 }
 
 //Close connection
