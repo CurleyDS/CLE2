@@ -56,57 +56,51 @@ mysqli_close($db);
     <?php require_once "../includes/head-info.php"; ?>
 </head>
 <body>
-    <div class="container-fluid">
-        <div class="row bg-black">
-            <!-- Require navigation-bar -->
-            <?php require_once "../includes/navigation-bar.php"; ?>
-        </div>
-        <section>
-            <div class="col-md-10">
-                <a href="../schedule" class="btn btn-maroon rounded-pill">Terug</a>
+    <div class="row bg-black">
+        <!-- Require navigation-bar -->
+        <?php require_once "../includes/navigation-bar.php"; ?>
+    </div>
+    <div class="section">
+        <a href="../schedule" class="btn btn-maroon rounded-pill">Terug</a>
+    </div>
+    <div class="section">
+        <!-- edit form -->
+        <form action="" method="post" enctype="multipart/form-data">
+            <!-- Lesson list -->
+            <div class="mb-3">
+                <label for="lessons" class="form-label">Start van de cursus</label>
+                <select name="lesson_id" class="form-select" id="lessons">
+                    <?php foreach ($lessons as $lesson) { ?>
+                        <option value="<?= $lesson['id']; ?>" <?= isset($lesson_id) && $lesson['id'] == $lesson_id ? 'selected' : isset($reservation['lesson_id']) && $lesson['id'] == $reservation['lesson_id'] ? 'selected' : '' ?>><?= date('H:i \o\n l jS F Y', strtotime($lesson['start_datetime'])); ?></option>
+                    <?php } ?>
+                </select>
+                <span class="text-danger"><?= isset($errors['lesson_id']) ? $errors['lesson_id'] : ''; ?></span>
             </div>
-        </section>
-        <section>
-            <div class="col-md-10">
-                <!-- edit form -->
-                <form action="" method="post" enctype="multipart/form-data">
-                    <!-- Lesson list -->
-                    <div class="mb-3">
-                        <label for="lessons" class="form-label">Start van de cursus</label>
-                        <select name="lesson_id" class="form-select" id="lessons">
-                            <?php foreach ($lessons as $lesson) { ?>
-                                <option value="<?= $lesson['id']; ?>" <?= isset($lesson_id) && $lesson['id'] == $lesson_id ? 'selected' : isset($reservation['lesson_id']) && $lesson['id'] == $reservation['lesson_id'] ? 'selected' : '' ?>><?= date('H:i \o\n l jS F Y', strtotime($lesson['start_datetime'])); ?></option>
-                            <?php } ?>
-                        </select>
-                        <span class="text-danger"><?= isset($errors['lesson_id']) ? $errors['lesson_id'] : ''; ?></span>
-                    </div>
-                    <!-- Name input -->
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Name</label>
-                        <input type="text" name="name" class="form-control" id="name" value="<?= isset($name) ? htmlentities($name) : $reservation['name'] ?>">
-                        <span class="text-danger"><?= isset($errors['name']) ? $errors['name'] : ''; ?></span>
-                    </div>
-                    <!-- Email input -->
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email address</label>
-                        <input type="text" name="email" class="form-control" id="email" value="<?= isset($email) ? htmlentities($email) : $reservation['email'] ?>">
-                        <span class="text-danger"><?= isset($errors['email']) ? $errors['email'] : ''; ?></span>
-                    </div>
-                    <!-- Phone input -->
-                    <div class="mb-3">
-                        <label for="phone" class="form-label">Phone</label>
-                        <input type="text" name="phone" class="form-control" id="phone" value="<?= isset($phone) ? htmlentities($phone) : $reservation['phone'] ?>">
-                        <span class="text-danger"><?= isset($errors['phone']) ? $errors['phone'] : ''; ?></span>
-                    </div>
-                    <!-- Submit form -->
-                    <div class="mb-3">
-                        <input type="hidden" name="id" value="<?= $reservation['id'] ?>"/>
-                        <input type="submit" name="submit" class="btn btn-maroon" value="Submit" aria-describedby="contactHelp">
-                        <div id="contactHelp" class="form-text">We'll never share your contact info with anyone else.</div>
-                    </div>
-                </form>
+            <!-- Name input -->
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" name="name" class="form-control" id="name" value="<?= isset($name) ? htmlentities($name) : $reservation['name'] ?>">
+                <span class="text-danger"><?= isset($errors['name']) ? $errors['name'] : ''; ?></span>
             </div>
-        </section>
+            <!-- Email input -->
+            <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="text" name="email" class="form-control" id="email" value="<?= isset($email) ? htmlentities($email) : $reservation['email'] ?>">
+                <span class="text-danger"><?= isset($errors['email']) ? $errors['email'] : ''; ?></span>
+            </div>
+            <!-- Phone input -->
+            <div class="mb-3">
+                <label for="phone" class="form-label">Phone</label>
+                <input type="text" name="phone" class="form-control" id="phone" value="<?= isset($phone) ? htmlentities($phone) : $reservation['phone'] ?>">
+                <span class="text-danger"><?= isset($errors['phone']) ? $errors['phone'] : ''; ?></span>
+            </div>
+            <!-- Submit form -->
+            <div class="mb-3">
+                <input type="hidden" name="id" value="<?= $reservation['id'] ?>"/>
+                <input type="submit" name="submit" class="btn btn-maroon" value="Submit" aria-describedby="contactHelp">
+                <div id="contactHelp">We'll never share your contact info with anyone else.</div>
+            </div>
+        </form>
     </div>
 </body>
 </html>

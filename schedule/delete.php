@@ -59,33 +59,27 @@ mysqli_close($db);
     <?php require_once "../includes/head-info.php"; ?>
 </head>
 <body>
-    <div class="container-fluid">
-        <div class="row bg-black">
-            <!-- Require navigation-bar -->
-            <?php require_once "../includes/navigation-bar.php"; ?>
-        </div>
-        <section>
-            <div class="col-md-10">
-                <a href="../schedule" class="btn btn-maroon rounded-pill">Terug</a>
+    <div class="row bg-black">
+        <!-- Require navigation-bar -->
+        <?php require_once "../includes/navigation-bar.php"; ?>
+    </div>
+    <div class="section">
+        <a href="../schedule" class="btn btn-maroon rounded-pill">Terug</a>
+    </div>
+    <div class="section">
+        <h2>Verwijder de reservatie</h2>
+        <!-- delete form -->
+        <form action="" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <p>Weet u zeker dat u de reservatie voor les van <?= date('l jS F Y \o\n H:i', strtotime($reservation['lesson']['start_datetime'])) . ' - ' . date('H:i', strtotime($reservation['lesson']['end_datetime'])); ?> wilt verwijderen?</p>
             </div>
-        </section>
-        <section>
-            <div class="col-md-10">
-                <h2>Verwijder de reservatie</h2>
-                <!-- delete form -->
-                <form action="" method="post" enctype="multipart/form-data">
-                    <div class="mb-3">
-                        <p>Weet u zeker dat u de reservatie voor les van <?= date('l jS F Y \o\n H:i', strtotime($reservation['lesson']['start_datetime'])) . ' - ' . date('H:i', strtotime($reservation['lesson']['end_datetime'])); ?> wilt verwijderen?</p>
-                    </div>
-                    <!-- Submit form -->
-                    <div class="mb-3">
-                        <input type="hidden" name="id" value="<?= $reservation['id'] ?>"/>
-                        <input type="submit" name="submit" class="btn btn-maroon" value="Submit" aria-describedby="contactHelp">
-                        <div id="contactHelp" class="form-text">We'll never share your contact info with anyone else.</div>
-                    </div>
-                </form>
+            <!-- Submit form -->
+            <div class="mb-3">
+                <input type="hidden" name="id" value="<?= $reservation['id'] ?>"/>
+                <input type="submit" name="submit" class="btn btn-maroon" value="Submit" aria-describedby="contactHelp">
+                <div id="contactHelp">We'll never share your contact info with anyone else.</div>
             </div>
-        </section>
+        </form>
     </div>
 </body>
 </html>

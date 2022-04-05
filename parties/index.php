@@ -14,10 +14,8 @@ mysqli_close($db);
     <div class="bg-black">
         <?php require_once "../includes/navigation-bar.php"; ?>
     </div>
-    <div>
-        <section>
-            parties
-        </section>
+    <div class="section">
+        parties
     </div>
 </body>
 </html>

@@ -54,68 +54,62 @@ mysqli_close($db);
     </script>
 </head>
 <body>
-    <div class="container-fluid">
-        <div class="row bg-black">
-            <!-- Require navigation-bar -->
-            <?php require_once "../includes/navigation-bar.php"; ?>
-        </div>
-        <section>
-            <div class="col-md-10">
-                <a href="../schedule" class="btn btn-maroon rounded-pill">Terug</a>
+    <div class="row bg-black">
+        <!-- Require navigation-bar -->
+        <?php require_once "../includes/navigation-bar.php"; ?>
+    </div>
+    <div class="section">
+        <a href="../schedule" class="btn btn-maroon rounded-pill">Terug</a>
+    </div>
+    <div class="section">
+        <!-- create form -->
+        <form action="" method="post" enctype="multipart/form-data">
+            <!-- Trial lesson checkbox -->
+            <div class="mb-3 form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" name="trial_lesson" class="form-check-input" id="trialLesson" onclick="isTrialLesson()" <?= isset($trial_lesson) && $trial_lesson == true ? 'checked' : '' ?>>Proefles nemen?
+                </label>
+                <span class="text-danger"><?= isset($errors['trial_lesson']) ? $errors['trial_lesson'] : ''; ?></span>
             </div>
-        </section>
-        <section>
-            <div class="col-md-10">
-                <!-- create form -->
-                <form action="" method="post" enctype="multipart/form-data">
-                    <!-- Trial lesson checkbox -->
-                    <div class="mb-3 form-check">
-                        <label class="form-check-label">
-                            <input type="checkbox" name="trial_lesson" class="form-check-input" id="trialLesson" onclick="isTrialLesson()" <?= isset($trial_lesson) && $trial_lesson == true ? 'checked' : '' ?>>Proefles nemen?
-                        </label>
-                        <span class="text-danger"><?= isset($errors['trial_lesson']) ? $errors['trial_lesson'] : ''; ?></span>
-                    </div>
-                    <!-- Trial-lesson/Lesson list -->
-                    <div class="mb-3">
-                        <label for="lessons" class="form-label">Start van de cursus</label>
-                        <select name="lesson_id" class="form-select" id="trialLessons">
-                            <?php foreach ($trialLessons as $lesson) { ?>
-                                <option value="<?= $lesson['id']; ?>" <?= isset($lesson_id) && $lesson['id'] == $lesson_id ? 'selected' : '' ?>><?= date('H:i \o\n l jS F Y', strtotime($lesson['start_datetime'])); ?></option>
-                            <?php } ?>
-                        </select>
-                        <select name="lesson_id" class="form-select" id="lessons">
-                            <?php foreach ($lessons as $lesson) { ?>
-                                <option value="<?= $lesson['id']; ?>" <?= isset($lesson_id) && $lesson['id'] == $lesson_id ? 'selected' : '' ?>><?= date('H:i \o\n l jS F Y', strtotime($lesson['start_datetime'])); ?></option>
-                            <?php } ?>
-                        </select>
-                        <span class="text-danger"><?= isset($errors['lesson_id']) ? $errors['lesson_id'] : ''; ?></span>
-                    </div>
-                    <!-- Name input -->
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Name</label>
-                        <input type="text" name="name" class="form-control" id="name" value="<?= isset($name) ? htmlentities($name) : '' ?>">
-                        <span class="text-danger"><?= isset($errors['name']) ? $errors['name'] : ''; ?></span>
-                    </div>
-                    <!-- Email input -->
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email address</label>
-                        <input type="text" name="email" class="form-control" id="email" value="<?= isset($email) ? htmlentities($email) : '' ?>">
-                        <span class="text-danger"><?= isset($errors['email']) ? $errors['email'] : ''; ?></span>
-                    </div>
-                    <!-- Phone input -->
-                    <div class="mb-3">
-                        <label for="phone" class="form-label">Phone</label>
-                        <input type="text" name="phone" class="form-control" id="phone" value="<?= isset($phone) ? htmlentities($phone) : '' ?>">
-                        <span class="text-danger"><?= isset($errors['phone']) ? $errors['phone'] : ''; ?></span>
-                    </div>
-                    <!-- Submit form -->
-                    <div class="mb-3">
-                        <input type="submit" name="submit" class="btn btn-maroon" value="Submit" aria-describedby="contactHelp">
-                        <div id="contactHelp" class="form-text">We'll never share your contact info with anyone else.</div>
-                    </div>
-                </form>
+            <!-- Trial-lesson/Lesson list -->
+            <div class="mb-3">
+                <label for="lessons" class="form-label">Start van de cursus</label>
+                <select name="lesson_id" class="form-select" id="trialLessons">
+                    <?php foreach ($trialLessons as $lesson) { ?>
+                        <option value="<?= $lesson['id']; ?>" <?= isset($lesson_id) && $lesson['id'] == $lesson_id ? 'selected' : '' ?>><?= date('H:i \o\n l jS F Y', strtotime($lesson['start_datetime'])); ?></option>
+                    <?php } ?>
+                </select>
+                <select name="lesson_id" class="form-select" id="lessons">
+                    <?php foreach ($lessons as $lesson) { ?>
+                        <option value="<?= $lesson['id']; ?>" <?= isset($lesson_id) && $lesson['id'] == $lesson_id ? 'selected' : '' ?>><?= date('H:i \o\n l jS F Y', strtotime($lesson['start_datetime'])); ?></option>
+                    <?php } ?>
+                </select>
+                <span class="text-danger"><?= isset($errors['lesson_id']) ? $errors['lesson_id'] : ''; ?></span>
             </div>
-        </section>
+            <!-- Name input -->
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" name="name" class="form-control" id="name" value="<?= isset($name) ? htmlentities($name) : '' ?>">
+                <span class="text-danger"><?= isset($errors['name']) ? $errors['name'] : ''; ?></span>
+            </div>
+            <!-- Email input -->
+            <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="text" name="email" class="form-control" id="email" value="<?= isset($email) ? htmlentities($email) : '' ?>">
+                <span class="text-danger"><?= isset($errors['email']) ? $errors['email'] : ''; ?></span>
+            </div>
+            <!-- Phone input -->
+            <div class="mb-3">
+                <label for="phone" class="form-label">Phone</label>
+                <input type="text" name="phone" class="form-control" id="phone" value="<?= isset($phone) ? htmlentities($phone) : '' ?>">
+                <span class="text-danger"><?= isset($errors['phone']) ? $errors['phone'] : ''; ?></span>
+            </div>
+            <!-- Submit form -->
+            <div class="mb-3">
+                <input type="submit" name="submit" class="btn btn-maroon" value="Submit" aria-describedby="contactHelp">
+                <div id="contactHelp">We'll never share your contact info with anyone else.</div>
+            </div>
+        </form>
     </div>
 </body>
 <script>

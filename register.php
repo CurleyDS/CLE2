@@ -39,41 +39,39 @@ mysqli_close($db);
         <!-- Require navigation-bar -->
         <?php require_once "includes/navigation-bar.php"; ?>
     </div>
-    <div>
-        <section>
-            <!-- login form -->
-            <form action="" method="post" enctype="multipart/form-data">
-                <!-- Name input -->
-                <div>
-                    <label for="name" class="form-label">Naam</label>
-                    <input type="text" name="name" class="form-control" id="name" value="<?= isset($name) ? htmlentities($name) : '' ?>">
-                    <span class="text-error"><?= isset($errors['name']) ? $errors['name'] : ''; ?></span>
-                </div>
-                <!-- Password input -->
-                <div>
-                    <label for="password" class="form-label">Wachtwoord</label>
-                    <input type="password" name="password" class="form-control" id="password" value="<?= isset($password) ? htmlentities($password) : '' ?>">
-                    <span class="text-error"><?= isset($errors['password']) ? $errors['password'] : ''; ?></span>
-                </div>
-                <!-- Phone input -->
-                <div>
-                    <label for="phone" class="form-label">Telefoonnummer</label>
-                    <input type="text" name="phone" class="form-control" id="phone" value="<?= isset($phone) ? htmlentities($phone) : '' ?>">
-                    <span class="text-error"><?= isset($errors['phone']) ? $errors['phone'] : ''; ?></span>
-                </div>
-                <!-- Email input -->
-                <div>
-                    <label for="email" class="form-label">Email adres</label>
-                    <input type="text" name="email" class="form-control" id="email" value="<?= isset($email) ? htmlentities($email) : '' ?>">
-                    <span class="text-error"><?= isset($errors['email']) ? $errors['email'] : ''; ?></span>
-                </div>
-                <!-- Submit form -->
-                <div>
-                    <input type="submit" name="submit" class="btn btn-maroon" value="Register">
-                    <span class="text-error"><?= isset($errors['register']) ? $errors['register'] : ''; ?></span>
-                </div>
-            </form>
-        </section>
+    <div class="section">
+        <!-- login form -->
+        <form action="" method="post" enctype="multipart/form-data">
+            <!-- Name input -->
+            <div>
+                <label for="name" class="form-label">Naam</label>
+                <input type="text" name="name" class="form-control" id="name" value="<?= isset($name) ? htmlentities($name) : '' ?>">
+                <span class="text-error"><?= isset($errors['name']) ? $errors['name'] : ''; ?></span>
+            </div>
+            <!-- Password input -->
+            <div>
+                <label for="password" class="form-label">Wachtwoord</label>
+                <input type="password" name="password" class="form-control" id="password" value="<?= isset($password) ? htmlentities($password) : '' ?>">
+                <span class="text-error"><?= isset($errors['password']) ? $errors['password'] : ''; ?></span>
+            </div>
+            <!-- Phone input -->
+            <div>
+                <label for="phone" class="form-label">Telefoonnummer</label>
+                <input type="text" name="phone" class="form-control" id="phone" value="<?= isset($phone) ? htmlentities($phone) : '' ?>">
+                <span class="text-error"><?= isset($errors['phone']) ? $errors['phone'] : ''; ?></span>
+            </div>
+            <!-- Email input -->
+            <div>
+                <label for="email" class="form-label">Email adres</label>
+                <input type="text" name="email" class="form-control" id="email" value="<?= isset($email) ? htmlentities($email) : '' ?>">
+                <span class="text-error"><?= isset($errors['email']) ? $errors['email'] : ''; ?></span>
+            </div>
+            <!-- Submit form -->
+            <div>
+                <input type="submit" name="submit" class="btn btn-maroon" value="Register">
+                <span class="text-error"><?= isset($errors['register']) ? $errors['register'] : ''; ?></span>
+            </div>
+        </form>
     </div>
 </body>
 </html>

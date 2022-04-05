@@ -74,12 +74,9 @@ nav-bar {
     border-top: 1px solid rgba(0,0,0,.15);
 }
 
-banner {
+.banner-div {
     display: flex;
     justify-content: center;
-}
-
-.banner-div {
     position: relative;
 }
 
@@ -95,7 +92,7 @@ banner {
     text-align: center;
 }
 
-section {
+.section {
     padding: 3em 1em;
 }
 
@@ -112,7 +109,7 @@ table {
     width: 100%;
 }
 
-table thead, tbody, tfoot {
+table thead, table tbody, table tfoot {
     text-align: left;
 }
 
@@ -136,7 +133,7 @@ form div {
     width: 100%;
 }
 
-.form-text {
+#contactHelp {
     margin-top: .25rem;
     font-size: .875em;
     color: #6c757d;

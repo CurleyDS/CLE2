@@ -30,45 +30,43 @@ mysqli_close($db);
         <!-- Require navigation-bar -->
         <?php require_once "../includes/navigation-bar.php"; ?>
     </div>
-    <div>
-        <section class="text-right">
-            <a href="create.php" class="btn btn-maroon rounded-pill">Cursus/Proefles registreren</a>
-        </section>
-        <section>
-            <table class="table">
-                <thead class="border border-maroon">
+    <div class="section text-right">
+        <a href="create.php" class="btn btn-maroon rounded-pill">Cursus/Proefles registreren</a>
+    </div>
+    <div class="section">
+        <table class="table">
+            <thead class="border border-maroon">
+                <tr>
+                    <th>#</th>
+                    <th>Naam</th>
+                    <th>Telefoonnummer</th>
+                    <th>Email</th>
+                    <th>Lestijden</th>
+                    <th <?= isset($_SESSION['user']) ? '' : 'colspan="3"'; ?>></th>
+                </tr>
+            </thead>
+            <tbody class="border border-maroon">
+                <?php foreach ($reservations as $index => $reservation) { ?>
                     <tr>
-                        <th>#</th>
-                        <th>Naam</th>
-                        <th>Telefoonnummer</th>
-                        <th>Email</th>
-                        <th>Lestijden</th>
-                        <th <?= isset($_SESSION['user']) ? '' : 'colspan="3"'; ?>></th>
+                        <td><?= $index+1 ?></td>
+                        <td><?= $reservation['name']; ?></td>
+                        <td><?= $reservation['phone']; ?></td>
+                        <td><?= $reservation['email']; ?></td>
+                        <td><?= date('H:i', strtotime($reservation['lesson']['start_datetime'])) . ' - ' . date('H:i | j-m-Y', strtotime($reservation['lesson']['end_datetime'])); ?></td>
+                        <td><a href="details.php?id=<?= $reservation['id']; ?>" class="text-maroon">Details</a></td>
+                        <?php if (isset($_SESSION['user'])) { ?>
+                            <td><a href="edit.php?id=<?= $reservation['id']; ?>" class="text-maroon">Bewerken</a></td>
+                            <td><a href="delete.php?id=<?= $reservation['id']; ?>" class="text-maroon">Annuleren</a></td>
+                        <?php } ?>
                     </tr>
-                </thead>
-                <tbody class="border border-maroon">
-                    <?php foreach ($reservations as $index => $reservation) { ?>
-                        <tr>
-                            <td><?= $index+1 ?></td>
-                            <td><?= $reservation['name']; ?></td>
-                            <td><?= $reservation['phone']; ?></td>
-                            <td><?= $reservation['email']; ?></td>
-                            <td><?= date('H:i', strtotime($reservation['lesson']['start_datetime'])) . ' - ' . date('H:i | j-m-Y', strtotime($reservation['lesson']['end_datetime'])); ?></td>
-                            <td><a href="details.php?id=<?= $reservation['id']; ?>" class="text-maroon">Details</a></td>
-                            <?php if (isset($_SESSION['user'])) { ?>
-                                <td><a href="edit.php?id=<?= $reservation['id']; ?>" class="text-maroon">Bewerken</a></td>
-                                <td><a href="delete.php?id=<?= $reservation['id']; ?>" class="text-maroon">Annuleren</a></td>
-                            <?php } ?>
-                        </tr>
-                    <?php } ?>
-                </tbody>
-                <tfoot class="border border-maroon">
-                    <tr>
-                        <td colspan="9">&copy; Reservations</td>
-                    </tr>
-                </tfoot>
-            </table>
-        </section>
+                <?php } ?>
+            </tbody>
+            <tfoot class="border border-maroon">
+                <tr>
+                    <td colspan="9">&copy; Reservations</td>
+                </tr>
+            </tfoot>
+        </table>
     </div>
 </body>
 </html>
