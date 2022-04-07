@@ -67,14 +67,6 @@ a {
     text-decoration: none;
 }
 
-.bg-black {
-    background-color: black !important;
-}
-
-.bg-maroon {
-    background-color: #800000 !important;
-}
-
 table {
     border: 1px solid black;
     border-radius: .25rem;
@@ -110,6 +102,14 @@ form div {
     margin-top: .25rem;
     font-size: .875em;
     color: #6c757d;
+}
+
+.bg-black {
+    background-color: black !important;
+}
+
+.bg-maroon {
+    background-color: #800000 !important;
 }
 
 .border {
@@ -190,11 +190,9 @@ form div {
         width: auto;
     }
 
-    
     .dropdown-mobile {
     display: none;
     }
-
 
     .dropdown-desktop {
         display: inline-block;
