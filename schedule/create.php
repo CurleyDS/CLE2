@@ -23,7 +23,7 @@ if (isset($_POST['submit'])) {
         $result = insertReservations($db, $trial_lesson, $lesson_id, $name, $phone, $email);
 
         if ($result) {
-            header('Location: http://' . $_SERVER['HTTP_HOST'] . '/CLE2/schedule/');
+            header('Location: http://' . $_SERVER['HTTP_HOST'] . '/' . explode('/', $_SERVER['REQUEST_URI'])[1] . '/schedule/');
             exit;
         } else {
             $errors['db'] = 'Something went wrong in your database query: ' . mysqli_error($db);

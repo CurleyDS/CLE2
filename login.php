@@ -4,7 +4,7 @@ require_once "includes/database.php";
 
 // If user is logged in, redirect to index.php
 if(isset($_SESSION['user'])){
-    header('Location: /CLE2/');
+    header('Location: /' . explode('/', $_SERVER['REQUEST_URI'])[1] . '/');
     exit;
 }
 
@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
         
         if ($data == 'Login failed') {
             $_SESSION['user'] = $data;
-            header('Location: http://' . $_SERVER['HTTP_HOST'] . '/CLE2/schedule/');
+            header('Location: http://' . $_SERVER['HTTP_HOST'] . '/' . explode('/', $_SERVER['REQUEST_URI'])[1] . '/schedule/');
             exit;
         } else {
             $errors['login'] = $data;

@@ -19,15 +19,15 @@ if (isset($_GET['id']) || $_GET['id'] != '') {
         if (mysqli_num_rows($lResult) == 1) {
             $reservation['lesson'] = mysqli_fetch_assoc($lResult);
         } else {
-            header('Location: http://' . $_SERVER['HTTP_HOST'] . '/CLE2/schedule/');
+            header('Location: http://' . $_SERVER['HTTP_HOST'] . '/' . explode('/', $_SERVER['REQUEST_URI'])[1] . '/schedule/');
             exit;
         }
     } else {
-        header('Location: http://' . $_SERVER['HTTP_HOST'] . '/CLE2/schedule/');
+        header('Location: http://' . $_SERVER['HTTP_HOST'] . '/' . explode('/', $_SERVER['REQUEST_URI'])[1] . '/schedule/');
         exit;
     }
 } else {
-    header('Location: http://' . $_SERVER['HTTP_HOST'] . '/CLE2/schedule/');
+    header('Location: http://' . $_SERVER['HTTP_HOST'] . '/' . explode('/', $_SERVER['REQUEST_URI'])[1] . '/schedule/');
     exit;
 }
 

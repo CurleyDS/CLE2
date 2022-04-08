@@ -21,7 +21,7 @@ if (isset($_POST['submit'])) {
         $result = updateReservation($db, $id, $lesson_id, $name, $phone, $email);
 
         if ($result) {
-            header('Location: http://' . $_SERVER['HTTP_HOST'] . '/CLE2/schedule/');
+            header('Location: http://' . $_SERVER['HTTP_HOST'] . '/' . explode('/', $_SERVER['REQUEST_URI'])[1] . '/schedule/');
             exit;
         } else {
             $errors['db'] = 'Something went wrong in your database query: ' . mysqli_error($db);
@@ -38,11 +38,11 @@ if (isset($_POST['submit'])) {
     if (mysqli_num_rows($result) == 1) {
         $reservation = mysqli_fetch_assoc($result);
     } else {
-        header('Location: http://' . $_SERVER['HTTP_HOST'] . '/CLE2/schedule/');
+        header('Location: http://' . $_SERVER['HTTP_HOST'] . '/' . explode('/', $_SERVER['REQUEST_URI'])[1] . '/schedule/');
         exit;
     }
 } else {
-    header('Location: http://' . $_SERVER['HTTP_HOST'] . '/CLE2/schedule/');
+    header('Location: http://' . $_SERVER['HTTP_HOST'] . '/' . explode('/', $_SERVER['REQUEST_URI'])[1] . '/schedule/');
     exit;
 }
 

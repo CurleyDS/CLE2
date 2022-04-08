@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) {
         $result = register($db, $name, $registerPassword, $phone, $email);
 
         if ($result) {
-            header('Location: http://' . $_SERVER['HTTP_HOST'] . '/CLE2/login.php');
+            header('Location: http://' . $_SERVER['HTTP_HOST'] . '/' . explode('/', $_SERVER['REQUEST_URI'])[1] . '/login.php');
             exit;
         } else {
             $errors['register'] = $data['errors'];
